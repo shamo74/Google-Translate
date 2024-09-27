@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Translation</title>
+    <style>  /* Font Face for TTF */
+        @font-face {
+            font-family: 'CustomArabicFont';
+            src: url('CustomArabicFont.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Font for entire page */
+        * {
+            font-family: 'CustomArabicFont', sans-serif;
+        }
+
+        /* General Styling */
+        body {
+            background-color: #FAF4F0;
+            color: black;
+            text-align: center;
+            direction: RTL;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #F4CBA2;
+        }
+
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .header-text {
+            font-size: 20px;
+            font-weight: ;
+        }
+
+        .star-icon {
+            font-size: 28px;
+            color: black;
+        }
+
+        /* Input Section */
+        .input-section {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .input-box {
+            border: none;
+            background-color: transparent;
+            font-size: 20px;
+            color: #4C4C4C;
+            width: 100%;
+            height: 100px;
+            padding-right: 30px;
+            overflow-y: auto;
+            resize: none;
+        }
+
+        .scroll-buttons {
+            position: absolute;
+            left: 1px;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .scroll-btn {
+            background-color: #F4CBA2;
+            border: none;
+            border-radius: 50%;
+            padding: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .paste-btn {
+            background-color: #F4CBA2;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* Language Selection */
+        .language-selection {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .language {
+            background-color: #F4CBA2;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 35px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .swap-icon {
+            font-size: 10px;
+        }
+
+        /* Bottom Section */
+        .bottom-icons {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 0px;
+        }
+
+        .icon-btn {
+            background-color: #F4CBA2;
+            border-radius: 90%;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .mic-btn {
+            background-color: #F4CBA2;
+            border-radius: 50%;
+            padding: 30px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .mic-btn.recording {
+            background-color: red;
+        }
+
+        .icon-label {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 90px;
+            
+            margin-top: 1px;
+        }
+
+        .swap-icon {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            color: black;
+        }
+
+        .swap-icon:hover {
+            color: black;
+            transform: rotate(360deg);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="user-profile">
+            <img src="https://static-00.iconduck.com/assets.00/translate-icon-2048x2048-1uvsusdw.png" alt="User Profile">
+        </div>
+        <div class="header-text">Google</div>
+        <div class="star-icon">★</div>
+    </header>
+    <center/>
+    <div class="container">
+        <div class="input-section">
+            <textarea id="inuk" class="input-box" placeholder="إدخال النص"></textarea>
+        </div>
+
+        <div class="language-selection">
+            <select id="inputLanguage" class="language">
+                <option value="ar">العربية</option>
+                <option value="en">الإنجليزية</option>
+            </select>
+            <button id="swapLanguages" class="swap-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <polyline points="1 20 1 14 7 14"></polyline>
+                    <path d="M3.51 9a9 9 0 0 1 13.44-3.61L23 10"></path>
+                    <path d="M20.49 15a9 9 0 0 1-13.44 3.61L1 14"></path>
+                </svg>
+            </button>
+            <select id="outputLanguage" class="language">
+                <option value="en">الإنجليزية</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+
+        <div class="input-section">
+            <textarea id="braille" class="input-box" readonly>ترجمة</textarea>
+            <button class="paste-btn" id="copyButton">نسخ</button>
+        </div>
+
+        <div class="bottom-icons">
+            <div class="icon">
+                <button class="icon-btn">📷</button>
+                <div class="icon-label">الكاميرا</div>
+            </div>
+            <div class="icon">
+                <button class="mic-btn" id="startRecording">🎤</button>
+            </div>
+            <div class="icon">
+                <button class="icon-btn">👥</button>
+                <div class="icon-label">محادثة</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var typingTimer;
+            var doneTypingInterval = 100; // زمن التأخير بعد التوقف عن الكتابة
+            var $inuk = document.getElementById("inuk");
+            var $braille = document.getElementById("braille");
+            var inputLanguage = document.getElementById("inputLanguage");
+            var outputLanguage = document.getElementById("outputLanguage");
+            var wordsWritten = []; // قائمة تخزين الكلمات المكتوبة
+
+            var inukKey = {};
+            const SPECIAL_RESPONSES = {};
+
+            function loadTranslations(language) {
+                var filePath = language === "ar" ? 'language-arabic.json' : 'translations.json';
+                
+                fetch(filePath)
+                    .then(response => response.json())
+                    .then(data => {
+                        inukKey = data.inukKey;
+                        Object.assign(SPECIAL_RESPONSES, data.SPECIAL_RESPONSES);
+                    })
+                    .catch(error => console.error('حدث خطأ في جلب الملف JSON:', error));
+            }
+
+            // تحميل الترجمات عند تحميل الصفحة
+            loadTranslations(inputLanguage.value);
+
+            $inuk.addEventListener('keyup', function() {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(inukFunction, doneTypingInterval);
+            });
+
+            document.getElementById("swapLanguages").addEventListener('click', function() {
+                // تبديل اللغات
+                var temp = inputLanguage.value;
+                inputLanguage.value = outputLanguage.value;
+                outputLanguage.value = temp;
+
+                loadTranslations(inputLanguage.value);
+                inukFunction(); // ترجمة النص عند التبديل
+            });
+
+            function inukFunction() {
+                var inuk = $inuk.value;
+                var words = inuk.split(/\s+/); // تقسيم النص إلى كلمات بمسافة
+                var result = "";
+                var i = 0;
+
+                while (i < words.length) {
+                    var phraseFound = false;
+
+                    // تحقق من العبارات الخاصة
+                    for (var phrase in SPECIAL_RESPONSES) {
+                        if (SPECIAL_RESPONSES.hasOwnProperty(phrase)) {
+                            var phraseWords = phrase.split(" ");
+                            var match = true;
+
+                            for (var j = 0; j < phraseWords.length; j++) {
+                                if (words[i + j] !== phraseWords[j]) {
+                                    match = false;
+                                    break;
+                                }
+                            }
+
+                            if (match) {
+                                result += SPECIAL_RESPONSES[phrase][0] + " " + SPECIAL_RESPONSES[phrase][1] + " ";
+                                i += phraseWords.length;
+                                phraseFound = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!phraseFound) {
+                        var word = words[i].replace(/[^\u0621-\u064A\u0660-\u0669]/g, " "); // تجاهل الرموز والأرقام
+                        
+                        // التحقق من عدم تكرار الكلمة
+                        if (!wordsWritten.includes(word) && word.length > 0) {
+                            wordsWritten.push(word); // إضافة الكلمة إلى القائمة
+                        }
+
+                        var translated = false;
+                        for (var key in inukKey) {
+                            if (inukKey.hasOwnProperty(key)) {
+                                if (word === key) { // بحث عن الكلمة المطابقة
+                                    result += inukKey[key][0] + " " + inukKey[key][1] + " ";
+                                    translated = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (!translated) {
+                            // إذا لم توجد ترجمة، يتم إضافة الكلمة كما هي
+                            result += word + " ";
+                        }
+                        i++;
+                    }
+                }
+
+                $braille.value = result.trim();
+            }
+
+            // إعداد التعرف على الصوت
+            const startRecording = document.getElementById('startRecording');
+            const audioStart = new Audio('start.mp3'); // رابط صوت بدء التسجيل
+            const audioStop = new Audio('stop.mp3'); // رابط صوت إيقاف التسجيل
+
+            if ('webkitSpeechRecognition' in window) {
+                const recognition = new webkitSpeechRecognition();
+                recognition.lang = inputLanguage.value; // تعيين اللغة
+                recognition.interimResults = false;
+                recognition.maxAlternatives = 1;
+
+                startRecording.addEventListener('click', function() {
+                    audioStart.play().then(() => {
+                        recognition.start(); // بدء التعرف على الصوت بعد تشغيل الصوت المخصص
+                    }).catch(err => {
+                        console.error("خطأ في تشغيل الصوت:", err);
+                    });
+                });
+
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript; // نص الكلام
+                    $inuk.value += transcript; // إضافة النص إلى حقل الإدخال
+                    inukFunction(); // الترجمة بعد إضافة النص
+                };
+
+                recognition.onend = function() {
+                    audioStop.play(); // تشغيل صوت إيقاف التسجيل عند انتهاء التعرف على الصوت
+                };
+
+                recognition.onerror = function(event) {
+                    console.error('حدث خطأ أثناء التعرف على الصوت:', event.error);
+                };
+            } else {
+                alert('هذا المتصفح لا يدعم واجهة التعرف على الصوت.');
+            }
+        });
+
+        // نسخ النص
+        const copyButton = document.getElementById('copyButton');
+        const brailleTextarea = document.getElementById('braille');
+
+        copyButton.addEventListener('click', () => {
+            // تحديد النص في الحقل الثاني
+            brailleTextarea.select();
+            brailleTextarea.setSelectionRange(0, 99999); // للدعم الجيد للمتصفحات
+
+            // نسخ النص إلى الحافظة
+            document.execCommand('copy');
+
+            // إزالة التحديد من الحقل
+            window.getSelection().removeAllRanges();
+
+            // رسالة تأكيد النسخ
+            alert('تم نسخ النص بنجاح!');
+        });
+    </script>
+</body>
+</html>
