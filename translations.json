@@ -1,5 +1,5 @@
 {
-    "short_words": {
+        "inukKey":  {
         "حب": "evîn",
         "نور": "ronahî",
         "بيت": "mal",
@@ -67,7 +67,7 @@
         "مسرور": "şad",
         "حزين": "xemgin"
     },
-    "long_words": {
+    "SPECIAL_RESPONSES":{
         "أستطيع": "ez dikarim",
         "لا أستطيع": "ez nikarim",
         "هل يمكنك مساعدتي": "dikarin te min alîkariyê?",
