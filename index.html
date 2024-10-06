@@ -492,7 +492,7 @@ body {
         responsiveVoice.speak(text, "Arabic Female", { 
             pitch: 90.0, // درجة الصوت
             rate: 1, // سرعة الكلام
-            volume: 1 // مستوى الصوت
+            volume: 1.5 // مستوى الصوت
         });
     } else {
         alert("يرجى إدخال نص للقراءة.");
@@ -503,9 +503,9 @@ document.getElementById('read-btn').addEventListener('click', function() {
     const text = document.getElementById('inuk').value;
     if (text) {
         responsiveVoice.speak(text, "Arabic Female", { 
-            pitch: 1.9, // درجة الصوت
+            pitch: 1, // درجة الصوت
             rate: 1, // سرعة الكلام
-            volume: 1 // مستوى الصوت
+            volume: 1.5 // مستوى الصوت
         });
     } else {
         alert("يرجى إدخال نص للقراءة.");
@@ -517,7 +517,7 @@ document.getElementById('readBrailleBtn').addEventListener('click', function() {
     const brailleText = document.getElementById('braille').value;
     if (brailleText) {
         responsiveVoice.speak(brailleText, "Arabic Female", { 
-            pitch: 1.9, // درجة الصوت
+            pitch: 1, // درجة الصوت
             rate: 1, // سرعة الكلام
             volume: 1 // مستوى الصوت
         });
