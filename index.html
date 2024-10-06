@@ -37,7 +37,7 @@
             justify-content: space-between;
             align-items: ;
             padding: px;
-            background-color: #F4CBA2;
+            background-color: #E5E5E5;
         }
 
         .user-profile img {
@@ -46,26 +46,27 @@
             border-radius: 50%;
         }
 
-        .header-text {
-            font-size: 20px;
-            font-weight: ;
+        
+            
+            
+            
         }
 
         .star-icon {
             font-size: 28px;
-            color: black;
+            color: Black;
         }
 
         /* Input Section */
         .input-section {
             position: relative;
-            margin: 10px 0;
+            margin: 0.1px 0;
         }
 
         .input-box {
             border: none;
             background-color: transparent;
-            font-size: 15px;
+            font-size: 22px;
             color: #4C4C4C;
             width: 80%;
             height: 100px;
@@ -85,7 +86,7 @@
         }
 
         .scroll-btn {
-            background-color: #F4CBA2;
+            background-color: #E5E5E5;
             border: none;
             border-radius: 50%;
             padding: 5px;
@@ -95,13 +96,13 @@
         }
 
         .paste-btn {
-            background-color: #F4CBA2;
+            background-color: #E5E5E5;
             border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 16px;
+            padding: 1px 21px;
+            border-radius: 49px;
+            font-size: 20px;
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 0px;
             cursor: pointer;
         }
 
@@ -113,11 +114,11 @@
         }
 
         .language {
-            background-color: #F4CBA2;
+            background-color: #E5E5E5;
             border: none;
-            padding: 10px 20px;
-            border-radius: 35px;
-            font-size: 13px;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-size: 17px;
             cursor: pointer;
         }
 
@@ -134,17 +135,17 @@
         }
 
         .icon-btn {
-            background-color: #F4CBA2;
+            background-color: #E5E5E5;
             border-radius: 90%;
             padding: 20px;
             cursor: pointer;
         }
 
         .mic-btn {
-            background-color: #F4CBA2;
-            border-radius: 50%;
-            padding: 30px;
-            font-size: 24px;
+            background-color: #E5E5E5;
+            border-radius: 60%;
+            padding: 20px;
+            font-size: 30px;
             color: white;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -155,7 +156,7 @@
         }
 
         .icon-label {
-            font-size: 16px;
+            font-size: 18px;
             margin-top: 10px;
         }
 
@@ -214,6 +215,59 @@ body {
         margin: auto;
     }
 }
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.input-section {
+    position: relative;
+    display: inline-block;
+}
+
+.input-box {
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    padding-right: 50px; /* مسافة لتوفير مكان للزر داخل الحقل */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.input-section {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    width: 300px;
+    height: 100px;
+    padding: 25px;
+    padding-right: 50px;
+}
+
+.read-button {
+    position: absolute;
+    Left: 10px;
+    top: 18px;
+    padding: 11px 15px;
+    background-color: #E5E5E5;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 56px;
+    font-size: 16px;
+}
+
+.read-button:hover {
+    background-color: White;
+}
 
     </style>
 </head>
@@ -224,13 +278,18 @@ body {
             <img7 src="https://static-00.iconduck.com/assets.00/translate-icon-2048x2048-1uvsusdw.png" alt="User Profile">
         </div>
         <div class="header-text"></div>
-        <div class="star-icon">★</div>
-    </header>
+        <div class="star-icon">Fast translation used worldwide </div>
+    </header><hr/>
     <center/>
-    <div class="container">
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=gzBEi77v"></script>
+<div class="container">
         <div class="input-section">
             <textarea id="inuk" class="input-box" placeholder="إدخال النص"></textarea>
+            <button id="read-btn" class="read-button">🔊</button>
         </div>
+    </div>
+
+
 
         <div class="language-selection">
             <select id="inputLanguage" class="language">
@@ -251,22 +310,25 @@ body {
             </select>
         </div>
 
-        <div class="input-section">
-            <textarea id="braille" class="input-box" readonly>ترجمة</textarea>
-            <button class="paste-btn" id="copyButton">نسخ</button>
-        </div>
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=gzBEi77v"></script>
+<div class="input-section">
+    <textarea id="braille" class="input-box" readonly>ترجمة</textarea>
+    <button class="paste-btn" id="copyButton">نسخ</button>
+    <button id="readBrailleBtn" class="read-button">🔊</button> <!-- زر قراءة الترجمة -->
+</div>
+
 
         <div class="bottom-icons">
             <div class="icon">
-                <button class="icon-btn">📷</button>
-                <div class="icon-label">الكاميرا</div>
+                <button class7="icon-btn"></button>
+                <div class7="icon-label"></div>
+            </div>
+            <div class7="icon">
+                <button class7="mic-btn" id="startRecording"></button>
             </div>
             <div class="icon">
-                <button class="mic-btn" id="startRecording">🎤</button>
-            </div>
-            <div class="icon">
-                <button class="icon-btn">👥</button>
-                <div class="icon-label">محادثة</div>
+                <button class7="icon-btn"></button>
+                <div class7="icon-label"></div>
             </div>
         </div>
     </div>
@@ -346,7 +408,7 @@ body {
                     }
 
                     if (!phraseFound) {
-                        var word = words[i].replace(/[^\u0621-\u064A\u0660-\u0669]/g, " "); // تجاهل الرموز والأرقام
+                        var word = words[i].replace(/[^\u0777621-\u064A\u0660-\u0669]/g, " "); // تجاهل الرموز والأرقام
                         
                         // التحقق من عدم تكرار الكلمة
                         if (!wordsWritten.includes(word) && word.length > 0) {
@@ -430,6 +492,46 @@ body {
             // رسالة تأكيد النسخ
             alert('تم نسخ النص بنجاح!');
         });
+        document.getElementById('read-btn').addEventListener('click', function() {
+    const text = document.getElementById('inuk').value;
+    if (text) {
+        responsiveVoice.speak(text, "Arabic Female", { 
+            pitch: 90.0, // درجة الصوت
+            rate: 1, // سرعة الكلام
+            volume: 1 // مستوى الصوت
+        });
+    } else {
+        alert("يرجى إدخال نص للقراءة.");
+    }
+});
+// قراءة النص في حقل الإدخال الأصلي
+document.getElementById('read-btn').addEventListener('click', function() {
+    const text = document.getElementById('inuk').value;
+    if (text) {
+        responsiveVoice.speak(text, "Arabic Female", { 
+            pitch: 1.9, // درجة الصوت
+            rate: 1, // سرعة الكلام
+            volume: 1 // مستوى الصوت
+        });
+    } else {
+        alert("يرجى إدخال نص للقراءة.");
+    }
+});
+
+// قراءة النص في حقل braille عند الضغط على الزر
+document.getElementById('readBrailleBtn').addEventListener('click', function() {
+    const brailleText = document.getElementById('braille').value;
+    if (brailleText) {
+        responsiveVoice.speak(brailleText, "Arabic Female", { 
+            pitch: 1.9, // درجة الصوت
+            rate: 1, // سرعة الكلام
+            volume: 1 // مستوى الصوت
+        });
+    } else {
+        alert("لا يوجد نص لقراءته في حقل الترجمة.");
+    }
+});
+
     </script>
 </body>
 </html>
