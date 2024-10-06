@@ -63,9 +63,17 @@
             margin: 0.1px 0;
         }
 
-        
-        
-        
+        .input-box {
+            border: none;
+            background-color: transparent;
+            font-size: 22px;
+            color: #4C4C4C;
+            width: 80%;
+            height: 100px;
+            padding-right: 3px;
+            overflow-y: auto;
+            resize: none;
+        }
 
         .scroll-buttons {
             position: absolute;
@@ -198,16 +206,6 @@ body {
         flex-direction: row;
         justify-content: space-between;
     }
-      .input-box {
-            border: none;
-            background-color: transparent;
-            font-size: 22px;
-            color: #4C4C4C;
-            width: 80%;
-            height: 100px;
-            padding-right: 3px;
-            overflow-y: auto;
-            resize: none;
 }
 
 /* استجابة للأجهزة الأكبر */
@@ -226,9 +224,8 @@ body {
 .input-section {
     position: relative;
     display: inline-block;
+
 }
-
-
 
 .container {
     display: flex;
@@ -242,7 +239,12 @@ body {
     margin-bottom: 20px;
 }
 
-
+.input-box {
+    width: 300px;
+    height: 100px;
+    padding: 25px;
+    padding-right: 50px;
+}
 
 .read-button {
     position: absolute;
@@ -272,7 +274,7 @@ body {
         <div class="header-text"></div>
         <div class="star-icon">Fast translation used worldwide </div>
     </header><hr/>
-    
+    <center/>
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=gzBEi77v"></script>
 <div class="container">
         <div class="input-section">
@@ -502,7 +504,7 @@ document.getElementById('read-btn').addEventListener('click', function() {
     if (text) {
         responsiveVoice.speak(text, "Arabic Female", { 
             pitch: 1.9, // درجة الصوت
-            rate: 0.6, // سرعة الكلام
+            rate: 1, // سرعة الكلام
             volume: 1 // مستوى الصوت
         });
     } else {
@@ -516,7 +518,7 @@ document.getElementById('readBrailleBtn').addEventListener('click', function() {
     if (brailleText) {
         responsiveVoice.speak(brailleText, "Arabic Female", { 
             pitch: 1.9, // درجة الصوت
-            rate: 0.6, // سرعة الكلام
+            rate: 1, // سرعة الكلام
             volume: 1 // مستوى الصوت
         });
     } else {
