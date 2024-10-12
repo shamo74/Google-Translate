@@ -390,7 +390,7 @@ body {
             const SPECIAL_RESPONSES = {};
 
             function loadTranslations(language) {
-                var filePath = language === "ar" ? 'language-arabic.json' : 'translations.json';
+                var filePath = language === "en" ? 'language-arabic.json' : 'translations.json';
                 
                 fetch(filePath)
                     .then(response => response.json())
