@@ -19,7 +19,7 @@
 
         /* General Styling */
         body {
-            background-color: #FAF4F0;
+            background-color: #f1f1f1;
             color: black;
             text-align: center;
             direction: RTL;
@@ -93,7 +93,7 @@
             margin: 5px 0;
             cursor: pointer;
             font-size: 11px;
-        }
+        } 
 
         .paste-btn {
             background-color: #E5E5E5;
@@ -104,6 +104,7 @@
             display: inline-block;
             margin-top: 0px;
             cursor: pointer;
+            
         }
 
         /* Language Selection */
@@ -240,7 +241,7 @@ body {
 }
 
 .input-box {
-    width: 200px;
+    width: 300px;
     height: 100px;
     padding: 25px;
     padding-right: 50px;
@@ -249,7 +250,7 @@ body {
 .read-button {
     position: absolute;
     Left: 20px;
-    top: 18px;
+    top: 10px;
     padding: 11px 15px;
     background-color: #E5E5E5;
     color: black;
@@ -261,6 +262,41 @@ body {
 
 .read-button:hover {
     background-color: White;
+}
+.bottom-icons {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #f1f1f1; /* خلفية */
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-btn, .mic-btn {
+    width: 80px; /* عرض الأزرار */
+    height: 80px; /* ارتفاع الأزرار */
+    border: none;
+    
+    background-size: cover; /* تجعل الصورة تغطي الزر بالكامل */
+    cursor: pointer; /* تظهر يد اليد عند التمرير */
+    border-radius: 45px; /* زوايا مستديرة */
+}
+
+.icon-label {
+    margin-top: 20px; /* مسافة بين الزر والتسمية */
+    font-size: 14px; /* حجم النص */
+    color: #333; /* لون النص */
+}
+
+/* زر الميكروفون */
+.mic-btn {
+    background-color: ; /* لون زر الميكروفون */
+    border-radius: 90%; /* شكل دائري */
 }
 
     </style>
@@ -274,22 +310,32 @@ body {
         <div class="header-text"></div>
         <div class="star-icon">Fast translation used worldwide </div>
     </header><hr/>
-    <center/> مرحبًا! باشي 🥳
+    <center/>
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=gzBEi77v"></script>
 <div class="container">
         <div class="input-section">
-            <textarea id="inuk" class="input-box" placeholder="𐺕𐺒𐺕𐺞𐺨 𐺁𐺢𐺛𐺨𐺑𐺀"></textarea>
-            <button id="read-btn" class="read-button">▶️</button>
+            <textarea id="inuk" class="input-box" placeholder="إدخال النص"></textarea>
+            <button id="read-btn" class="read-button">🔊</button>
         </div>
+    </div>
+
+
+
+
+
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=gzBEi77v"></script>
+<div class="input-section">
+    <textarea id="braille" class="input-box" readonly>ترجمة</textarea>
+      <button class="paste-btn" id="copyButton">نسخ</button>  <button id="readBrailleBtn" class="read-button">🔊</button> <!-- زر قراءة الترجمة -->
+    	
     </div>
 
 
 
         <div class="language-selection">
             <select id="inputLanguage" class="language">
-                <option value="en">العربية</option>
-                <option value="ar">شنگالي</option>
- <option value="ez">𐺀𐺩𐺣𐺨𐺋𐺨</option>
+                <option value="ar">العربية</option>
+                <option value="en">𐺀𐺩𐺏𐺨𐺋𐺨</option>
             </select>
             <button id="swapLanguages" class="swap-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw">
@@ -300,32 +346,33 @@ body {
                 </svg>
             </button>
             <select id="outputLanguage" class="language">
-                <option value="ar">شنگالي</option>
-                <option value="en">العربية</option>
- <option value="ez">𐺀𐺩𐺣𐺨𐺋𐺨</option>
+                <option value="en">𐺀𐺩𐺏𐺨𐺋𐺨</option>
+                <option value="ar">العربية</option>
             </select>
         </div>
+    
+    
+    
+    
 
-        <script src="https://code.responsivevoice.org/responsivevoice.js?key=gzBEi77v"></script>
-<div class="input-section">
-    <textarea id="braille" class="input-box" readonly>ترجمة</textarea>
-    <button class="paste-btn" id="copyButton">نسخ</button>
-    <button id="readBrailleBtn" class="read-button">▶️</button> <!-- زر قراءة الترجمة -->
+    <Br/>
 </div>
-
+<br/>
 
         <div class="bottom-icons">
-            <div class="icon">
-                <button class7="icon-btn"></button>
-                <div class7="icon-label"></div>
-            </div>
-            <div class7="icon">
-                <button class7="mic-btn" id="startRecording"></button>
-            </div>
-            <div class="icon">
-                <button class7="icon-btn"></button>
-                <div class7="icon-label"></div>
-            </div>
+    <div class="icon">
+        <button class="icon-btn" style="background-image: url('2.png');"></button>
+        <div class="icon-label"> </div>
+    </div>
+    <div class="icon">
+        <button class="mic-btn" id="startRecording" style="background-image: url('3.png');"></button>
+    </div>
+    <div class="icon">
+        <button class="icon-btn" style="background-image: url('1.png');"></button>
+        <div class="icon-label"></div>
+    </div>
+</div>
+
         </div>
     </div>
 
@@ -494,7 +541,7 @@ body {
         responsiveVoice.speak(text, "Arabic Female", { 
             pitch: 90.0, // درجة الصوت
             rate: 1, // سرعة الكلام
-            volume: 1.5 // مستوى الصوت
+            volume: 1 // مستوى الصوت
         });
     } else {
         alert("يرجى إدخال نص للقراءة.");
@@ -505,9 +552,9 @@ document.getElementById('read-btn').addEventListener('click', function() {
     const text = document.getElementById('inuk').value;
     if (text) {
         responsiveVoice.speak(text, "Arabic Female", { 
-            pitch: 1, // درجة الصوت
+            pitch: 1.9, // درجة الصوت
             rate: 1, // سرعة الكلام
-            volume: 1.5 // مستوى الصوت
+            volume: 1 // مستوى الصوت
         });
     } else {
         alert("يرجى إدخال نص للقراءة.");
@@ -519,7 +566,7 @@ document.getElementById('readBrailleBtn').addEventListener('click', function() {
     const brailleText = document.getElementById('braille').value;
     if (brailleText) {
         responsiveVoice.speak(brailleText, "Arabic Female", { 
-            pitch: 1, // درجة الصوت
+            pitch: 1.9, // درجة الصوت
             rate: 1, // سرعة الكلام
             volume: 1 // مستوى الصوت
         });
