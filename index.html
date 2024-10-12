@@ -241,7 +241,7 @@ body {
 }
 
 .input-box {
-    width: 130px;
+    width: 160px;
     height: 100px;
     padding: 25px;
     padding-right: 50px;
@@ -552,7 +552,7 @@ document.getElementById('read-btn').addEventListener('click', function() {
     const text = document.getElementById('inuk').value;
     if (text) {
         responsiveVoice.speak(text, "Arabic Female", { 
-            pitch: 1.9, // درجة الصوت
+            pitch: 0.8, // درجة الصوت
             rate: 1, // سرعة الكلام
             volume: 1 // مستوى الصوت
         });
@@ -566,7 +566,7 @@ document.getElementById('readBrailleBtn').addEventListener('click', function() {
     const brailleText = document.getElementById('braille').value;
     if (brailleText) {
         responsiveVoice.speak(brailleText, "Arabic Female", { 
-            pitch: 1.9, // درجة الصوت
+            pitch: 0.8, // درجة الصوت
             rate: 1, // سرعة الكلام
             volume: 1 // مستوى الصوت
         });
