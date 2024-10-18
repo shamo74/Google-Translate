@@ -23,7 +23,7 @@
 <div class="input-section">
     <textarea id="braille" class="input-box" readonly>ترجمة</textarea>
     <button class="paste-btn" id="copyButton">نسخ</button>
-    <button id="readBrailleBtn" class="read-button">🔊</button> <!-- زر قراءة الترجمة -->
+    <button id="readBrailleBtn" class="read-button">🔊قريبًا</button> <!-- زر قراءة الترجمة -->
 </div>
 
 <div class="language-selection">
@@ -129,7 +129,7 @@
                 }
 
                 if (!phraseFound) {
-                    var word = words[i].replace(/[^\u0621-\u064A\u0660-\u0669]/g, " ");
+                    var word = words[i].replace(/[^\uu0621-\u064A\u0660-\u80669]/g, " ");
                     if (!wordsWritten.includes(word) && word.length > 0) {
                         wordsWritten.push(word);
                     }
@@ -153,22 +153,60 @@
             }
 
             // تحويل النص إلى الحروف المطلوبة قبل عرضه في حقل الترجمة
-            $braille.value = convertToCustomLetters(result.trim());
+            $braille.value = convertToCustomLetters(result.trim()); 
         }
 
         // دالة لتحويل النص العربي إلى حروف مخصصة
-        function convertToCustomLetters(text) {
-            var letterMap = {
-                "ا": "𐺀",
-                "ب": "𐺁",
-                "ت": "𐺂",
-                "ث": "𐺃",
-                "ج": "𐺄",
-                // إضافة المزيد من التحويلات حسب الحاجة
-            };
-
-            return text.split("").map(char => letterMap[char] || char).join("");
-        }
+    function convertToCustomLetters(text) {
+    var letterMap = {
+        "ا": "𐺀",
+        "ب": "𐺁",
+        "ت": "𐺄",
+        "ث": "𐺅",
+        "ج": "𐺆",
+        "ح": "𐺉",
+        "خ": "𐺊",
+        "د": "𐺋",
+        "ذ": "𐺌",
+        "ر": "𐺍",
+        "ز": "𐺏",
+        "س": "𐺑",
+        "ش": "𐺒",
+        "ص": "𐺓",
+        "ض": "𐺄",
+        "ط": "𐺕",
+        "ظ": "𐺖",
+        "ع": "𐺗",
+        "غ": "𐺘",
+        "ف": "𐺙",
+        "ق": "𐺜",
+        "ك": "𐺝",
+        "ل": "𐺠",
+        "م": "𐺡",
+        "ن": "𐺢",
+        "ه": "𐺧",
+        "و": "𐺣",
+        "ي": "𐺨",
+        "پ": "𐺂",
+        "چ": "𐺇",
+        "ڕ": "𐺎",
+        "ژ": "𐺐",
+        "ڤ": "𐺛",
+        "گ": "𐺞",
+        "ڵ": "𐺰",
+        "ێ": "𐺩",
+        "ە": "𐺦",
+        "ۆ": "𐺥",
+        "ؤ": "𐺤",
+        "ئ": "𐺱",
+        "َ": "𐺬",
+        "ء": "𐺫",
+        "ّ": "𐺫",
+        "ى": "𐺱",
+        "ة": "𐺄𐺭"
+    };
+    return text.split("").map(char => letterMap[char] || char).join("");
+}
 
         const startRecording = document.getElementById('startRecording');
         const audioStart = new Audio('start.mp3');
@@ -241,6 +279,14 @@
         });
     });
 </script>
+
+
+
+
+
+
+
+
 <style/>
 
 
