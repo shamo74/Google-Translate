@@ -129,7 +129,7 @@
                 }
 
                 if (!phraseFound) {
-                    var word = words[i].replace(/[^\uu0621-\u064A\u0660-\u80669]/g, " ");
+                    var word = words[i].replace(/[^\u0621-\u064A\u0660-\u80669]/g, " ");
                     if (!wordsWritten.includes(word) && word.length > 0) {
                         wordsWritten.push(word);
                     }
