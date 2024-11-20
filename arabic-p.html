@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yezidi Translate</title>
+    <style>
+        /* Font Face for TTF -  Make sure the path is correct*/
+        @font-face {
+            font-family: 'CustomArabicFont';
+            src: url('CustomArabicFont.ttf') format('truetype'); /* Correct path to your font file */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            font-family: 'CustomArabicFont', sans-serif; /* Apply the custom font */
+        }
+
+        body {
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        /* ... (rest of the CSS is the same) */
+
+        .card-icon img { /* Style for images inside card icons */
+            width: 36px;  /* Adjust size as needed */
+            height: 36px; /* Adjust size as needed */
+        }
+
+         .menu-item img { /* Style for images in menu items */
+            width: 24px;  /* Adjust size as needed */
+            height: 24px; /* Adjust size as needed */
+            display: block;
+            margin: 0 auto;
+        }
+
+
+        .add-btn img { /* Style for image in add button - If you use one */
+            width: 24px;  /* Adjust size as needed */
+            height: 24px; /* Adjust size as needed */
+        }
+/* Font Face for TTF */
+        @font-face {
+            font-family: 'CustomArabicFont';
+            src: url('CustomArabicFont.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Font for entire page */
+        * {
+            font-family: 'CustomArabicFont', sans-serif;
+        }
+        /* إعدادات عامة */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #AEDEEB;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 20px;
+        }
+
+        /* رأس الصفحة */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .bell-icon {
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* البطاقات */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.15);
+            box-shadow: 6px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bo l d;
+            text-align: center;
+            
+        }
+
+        /* ألوان البطاقات */
+        .blue { background-color: #e3f2fd; color: #0d47a1; }
+        .green { background-color: #e8f5e9; color: #2e7d32; }
+        .pink { background-color: #F9D599; color: #c2185b; }
+        .red { background-color: #F4EA8D; color: #b71c1c; }
+
+        /* القائمة السفلية */
+        .bottom-menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #DAF7FF;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 4 -0px 44px rgba(0, 0, 0, 0.1);
+           
+        }
+
+        .menu-item {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            
+            
+        }
+
+        .menu-item.active {
+            color: #0d47a1;
+            
+        }
+
+        .menu-item svg {
+            display: block;
+            margin: 0 auto;
+            font-size: 24px;
+            
+        }
+
+        .add-btn {
+            background-color: #0d47a1;
+            color: #ffffff;
+            font-size: 34px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 14px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .add-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cards-container">
+        <div class="card blue">
+       <a href="translate.html" style="text-decoration: none; color: inherit;">     <div class="card-icon"><img src="translate_icon.png" alt="#"></div> 
+            <div class="card-title">ترجمة</a></div>
+        </div>
+        <div class="card green">
+            <div class="card-icon"><img src="education_icon.png" alt="#"></div>
+            <div class="card-title">تعليم</div>
+        </div>
+        <div class="card pink">
+            <div class="card-icon"><img src="exam_icon.png" alt="#"></div>
+            <div class="card-title">الامتحانات</div>
+        </div>
+        <div class="card red">
+            <a href="passport.html" style="text-decoration: none; color: inherit;">
+                <div class="card-icon"><img src="book_icon.png" alt="#"></div>
+                <div class="card-title">كتب</div>
+            </a>
+  
+        </div>
+
+<li/>
+            <a href="arabic-p.html" style="text-decoration: none; color: inherit;">العربية</a><br/>
+           <li/>     <a href="index.html" style="text-decoration: none; color: inherit;">English</a>
+                
+    </div><center/>
+
+    <div class="bottom-menu">
+        <div class="menu-item active">
+            <img src="home.png" alt="#">
+            <span>الواجهة</span>
+        </div>
+        <div class="menu-item">
+            <img src="book_icon.png" alt="#">
+            <span>كتب</span>
+        </div>
+        <div class="add-btn">    
+            <a href="passport.html" style="text-decoration: none; color: inherit;">
+                <img src="add.png" alt="#"></a></div>
+        <div class="menu-item">
+            <img src="drs.png" alt="#">
+            <span>الدروس</span>
+        </div>
+        <div class="menu-item">
+            <img src="more.png" alt="#">
+            <span>أكثر</span>
+        </div>
+    </div>
+
+</body>
+</html>
