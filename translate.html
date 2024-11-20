@@ -83,7 +83,31 @@
         <button class="icon-btn" style="background-image: url('1.png');"></button>
         <div class="icon-label"></div>
     </div>
-</div>
+    
+       </div><center/>
+
+    <div class="bottom-menu">
+        <div class="menu-item active">
+            <img src="home.png" alt="#">
+            <span>الواجهة</span>
+        </div>
+        <div class="menu-item">
+            <img src="book_icon.png" alt="#">
+            <span>كتب</span>
+        </div>
+        <div class="add-btn">    
+            <a href="passport.html" style="text-decoration: none; color: inherit;">
+                <img src="add.png" alt="#"></a></div>
+        <div class="menu-item">
+            <img src="drs.png" alt="#">
+            <span>الدروس</span>
+        </div>
+        <div class="menu-item">
+            <img src="more.png" alt="#">
+            <span>أكثر</span>
+        </div>
+    </div>
+   
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -739,4 +763,75 @@ body {
         .card-title {
             font-size: 14px;
             font-weight: bo l d;
+            text-align: center;
             
+        }
+
+        /* ألوان البطاقات */
+        .blue { background-color: #e3f2fd; color: #0d47a1; }
+        .green { background-color: #e8f5e9; color: #2e7d32; }
+        .pink { background-color: #F9D599; color: #c2185b; }
+        .red { background-color: #F4EA8D; color: #b71c1c; }
+
+        /* القائمة السفلية */
+        .bottom-menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #DAF7FF;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 4 -0px 44px rgba(0, 0, 0, 0.1);
+           
+        }
+
+        .menu-item {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            
+            
+        }
+
+        .menu-item.active {
+            color: #0d47a1;
+            
+        }
+
+        .menu-item svg {
+            display: block;
+            margin: 0 auto;
+            font-size: 24px;
+            
+        }
+
+        .add-btn {
+            background-color: #0d47a1;
+            color: #ffffff;
+            font-size: 34px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 14px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .add-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+</style>
+  
+        
+                
+    
+</body>
+</html>
