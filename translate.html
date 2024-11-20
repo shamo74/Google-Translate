@@ -71,18 +71,10 @@
 </select>
 </div>
 
-<div class="bottom-icons">
-    <div class="icon">
-        <button class="icon-btn" style="background-image: url('2.png');"></button>
-        <div class="icon-label"></div>
-    </div>
-    <div class="icon">
-        <button class="mic-btn" id="startRecording" style="background-image: url('3.png');"></button>
-    </div>
-    <div class="icon">
-        <button class="icon-btn" style="background-image: url('1.png');"></button>
-        <div class="icon-label"></div>
-    </div>
+
+
+
+
     
        </div><center/>
 
@@ -96,8 +88,8 @@
             <span>كتب</span>
         </div>
         <div class="add-btn">    
-            <a href="passport.html" style="text-decoration: none; color: inherit;">
-                <img src="add.png" alt="#"></a></div>
+              <button class="add-btn" id="startRecording">🔴</button>
+            </a></div>
         <div class="menu-item">
             <img src="drs.png" alt="#">
             <span>الدروس</span>
@@ -368,7 +360,7 @@
 
         /* General Styling */
         body {
-            background-color: red ;
+            background-color: ;
             color: black;
             text-align: center;
             direction: RTL;
@@ -615,7 +607,7 @@ body {
 .bottom-icons {
     display: flex;
     justify-content: space-around;
-    padding: 60px;
+    padding: 10px;
     background-color: ; /* خلفية */
 }
 
@@ -627,25 +619,25 @@ body {
 }
 
 .icon-btn, .mic-btn {
-    width: 10px; /* عرض الأزرار */
-    height: 10px; /* ارتفاع الأزرار */
+    width: 80px; /* عرض الأزرار */
+    height: 80px; /* ارتفاع الأزرار */
     border: none;
     
     background-size: cover; /* تجعل الصورة تغطي الزر بالكامل */
     cursor: pointer; /* تظهر يد اليد عند التمرير */
-    border-radius: 15px; /* زوايا مستديرة */
+    border-radius: 45px; /* زوايا مستديرة */
 }
 
 .icon-label {
-    margin-top: 10px; /* مسافة بين الزر والتسمية */
-    font-size: 10px; /* حجم النص */
+    margin-top: 20px; /* مسافة بين الزر والتسمية */
+    font-size: 14px; /* حجم النص */
     color: #333; /* لون النص */
 }
 
 /* زر الميكروفون */
 .mic-btn {
     background-color: ; /* لون زر الميكروفون */
-    border-radius: 40%; /* شكل دائري */
+    border-radius: 90%; /* شكل دائري */
 }
        /* Font Face for TTF -  Make sure the path is correct*/
         @font-face {
@@ -660,7 +652,7 @@ body {
         }
 
         body {
-            background-color: white;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             direction: rtl;
