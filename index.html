@@ -1,261 +1,240 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
+       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Yezidi Translate</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    
+    	    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <title>ترجمة Google الإيزيدية</title>
     <style>
-        /* Font Face for TTF */
-        @font-face {
-            font-family: 'CustomArabicFont';
-            src: url('CustomArabicFont.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
+    	        /* Font Face for TTF */
 
-        /* General Styling */
-        body {
-            font-family: 'Tajawal', 'CustomArabicFont', sans-serif;
-            color: #333;
-            text-align: center;
-            direction: rtl;
+        /* إعادة ضبط القيم الافتراضية */
+        * {
             margin: 0;
             padding: 0;
-            background-color: ;
+            box-sizing: border-box;
+            font-family: Tajawal;
         }
 
+        /* إعداد الخلفية */
+        body {
+            background-color: #E8EBED;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            direction: rtl;
+        }
+
+        /* الحاوية الرئيسية */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            width: 390px;
+            height: 780px;
+            background: #FFFFFF;
+            border-radius: 25px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            position: relative;
         }
-
-        /* Header Styling */
+ 
+        /* الهيدر */
         header {
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-text {
+            padding: 10px 15px;
             font-size: 23px;
             font-weight: bold;
-            color: #1a73e8;
+            color: #000;
+            position: relative;
         }
 
         .star-icon {
-            font-size: 28px;
-            color: #1a73e8;
+            font-size: 22px;
+            cursor: pointer;
         }
 
-        /* Input Section */
+        /* زر القائمة */
+        .menu-icon {
+            font-size: 26px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-weight: bold;
+        }
+
+        /* القائمة المنسدلة */
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            width: 150px;
+            z-index: 10;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .menu a:last-child {
+            border-bottom: none;
+        }
+
+        .menu a:hover {
+            background: #f0f0f0;
+        }
+
+        /* إدخال النص */
         .input-section {
-            position: relative;
-            margin: 20px 0;
+            width: 100%;
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .input-box {
-            border: 0px solid #ddd;
-            background-color: #fff;
-            font-size: 23px;
-            color: #333;
-            width: 90%;
+            width: 100%;
             height: 100px;
-            padding: 10px;
-            border-radius: 8px;
+            border: none;
+            border-radius: 15px;
+            background: #F8F9FA;
+            font-size: 20px;
+            padding: 15px;
+            text-align: right;
             resize: none;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            outline: none;
         }
 
-        .read-button {
-            position: absolute;
-            left: 10px;
-            bottom: 10px;
-            padding: 10px 10px;
-            background-color: #DFDFDF;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 80%;
-            font-size: 10px;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.5s ease;
-        }
-
-        .read-button:hover {
-            background-color: #1557b0;
-        }
-
-        .paste-btn {
-            background-color: #1a73e8;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 16px;
-            color: #fff;
-            cursor: pointer;
+        .read-button, .paste-btn {
             margin-top: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
+            background: #E0E0E0;
+            border-radius: 12px;
+            padding: 10px 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
         }
 
-        .paste-btn:hover {
-            background-color: #1557b0;
-        }
-
-        /* Language Selection */
+        /* أزرار اللغات */
         .language-selection {
             display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            position: relative;
         }
 
         .language {
-            background-color: #fff;
-            border: 3px solid #ddd;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 16px;
+            width: 45%;
+            background: #E0E0E0;
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
             cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .language:hover {
-            background-color: #f1f1f1;
-        } 
- 
-        .swap-icon {
-            background-color: transparent;
             border: none;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            color: #1a73e8;
-        }
- 
-        .swap-icon:hover {
-            transform: rotate(360deg);
         }
 
-        /* Bottom Section */
+        .swap-icon {
+            font-size: 24px;
+            background: #E0E0E0;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* أيقونات أسفل الشاشة */
         .bottom-icons {
+            width: 100%;
             display: flex;
             justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .icon {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            margin-top: 1px;
-            padding: 20px;
-            
-            box-shadow: 0 -2px 1px rgba(0, 0, 0, 0.1);
         }
 
         .icon-btn, .mic-btn {
             width: 60px;
             height: 60px;
-            border: none;
             background-size: cover;
-            cursor: pointer;
+            border: none;
             border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .icon-btn:hover, .mic-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .mic-btn {
-            background-color: #1a73e8;
-            color: #fff;
-        }
-
-        .mic-btn.recording {
-            background-color: #ff4444;
+            cursor: pointer;
         }
 
         .icon-label {
-            margin-top: 1px;
-            font-size: 14px;
-            color: #333;
+            margin-top: 5px;
+            font-size: 16px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-
-            .input-box {
-                height: 150px;
-                font-size: 23px;
-            }
-
-            .read-button {
-                font-size: 18px;
-                padding: 8px 12px;
-            }
-
-            .language {
-                padding: 10px 10px;
-                font-size: 20px;
-            }
-
-            .icon-btn, .mic-btn {
-                width: 50px;
-                height: 50px;
-            }
-        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-text">ترجمة Google الإيزيدية</div>
-        <div class="star-icon">⭐</div>
-    </header>
     <div class="container">
+        <!-- الهيدر -->
+        <header>
+            <div class="header-text">ترجمة Google الإيزيدية</div>
+            <button class="menu-icon" id="menuButton">☰</button>
+            <div class="menu" id="menu">
+                <a href="about.html">سياسة والخصوصية</a>
+                <a href="contact.html">دردشة مباشرة</a>
+                <a href="contact.html">اتصال بنا</a>
+                <a href="about.html">حول</a>
+            </div>
+        </header>
+
+        <!-- إدخال النص -->
         <div class="input-section">
-            <textarea id="inuk" class="input-box" placeholder="العربية"></textarea><br/>
+            <textarea id="inuk" class="input-box" placeholder="العربية"></textarea>
             <button id="read-btn" class="read-button">🔊</button>
         </div>
+
         <div class="input-section">
             <textarea id="braille" class="input-box" readonly placeholder="𐺩𐺏𐺨𐺋𐺨"></textarea>
-            <button class="paste-btn" id="copyButton">نسخ النص</button><br/>
+            <button class="paste-btn" id="copyButton">نسخ النص</button>
         </div>
+
+        <!-- أزرار اللغات -->
         <div class="language-selection">
             <select id="inputLanguage" class="language">
                 <option value="ar">العربية</option>
-                <option value="en">𐺩𐺏𐺨𐺋𐺨</option>
+                
             </select>
-            <button id="swapLanguages" class="swap-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw">
-                    <polyline points="23 4 23 10 17 10"></polyline>
-                    <polyline points="1 20 1 14 7 14"></polyline>
-                    <path d="M3.51 9a9 9 0 0 1 13.44-3.61L23 10"></path>
-                    <path d="M20.49 15a9 9 0 0 1-13.44 3.61L1 14"></path>
-                </svg>
-            </button>
-            <select id="outputLanguage" class="language" onchange="window.location.href=this.value;">
-                <option value="en">𐺩𐺏𐺨𐺋𐺨</option>
-                <option value="ar">العربية</option>
-                <option value="https://example.com/de">ألمانيا (قريبًا)</option>
-                <option value="https://example.com/eng">الإنجليزية (قريبًا)</option>
-                <option value="https://example.com/tr">تركيا (قريبًا)</option>
-                <option value="https://example.com/ku">كوردى (قريبًا)</option>
-                <option value="https://example.com/es">أسبانيا (قريبًا)</option>
-                <option value="https://example.com/fr">فرنسا (قريبًا)</option>
-                <option value="https://example.com/it">إيطاليا (قريبًا)</option>
-                <option value="https://example.com/pt">البرتغال (قريبًا)</option>
-                <option value="https://example.com/ru">روسيا (قريبًا)</option>
-                <option value="https://example.com/zh">الصين (قريبًا)</option>
-                <option value="https://example.com/ja">اليابان (قريبًا)</option>
-                <option value="https://example.com/ko">كوريا (قريبًا)</option>
-                <option value="https://example.com/hi">الهند (قريبًا)</option>
+         إلى
+            <select id="outputLanguage" class="language">
+                <option value="en">الإيزيدية</option>
+                
             </select>
         </div>
+
+        <!-- أيقونات التحكم -->
         <div class="bottom-icons">
             <div class="icon">
                 <button class="icon-btn" style="background-image: url('2.png');"></button>
@@ -269,38 +248,23 @@
                 <button class="icon-btn" style="background-image: url('1.png');"></button>
                 <div class="icon-label">الإعدادات</div>
             </div>
-        </div> قريبًا!
+        </div>
     </div>
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=gzBEi77v"></script>
+
     <script>
-        document.getElementById('read-btn').addEventListener('click', function() {
-            var text = document.getElementById('inuk').value;
-            responsiveVoice.speak(text, "Arabic Male");
-        });
-
-        document.getElementById('copyButton').addEventListener('click', function() {
-            var text = document.getElementById('braille').value;
-            navigator.clipboard.writeText(text).then(function() {
-                alert('تم نسخ النص بنجاح!');
-            }, function(err) {
-                console.error('فشل في نسخ النص: ', err);
-            });
-        });
-
-        document.getElementById('swapLanguages').addEventListener('click', function() {
-            var inputLang = document.getElementById('inputLanguage').value;
-            var outputLang = document.getElementById('outputLanguage').value;
-            document.getElementById('inputLanguage').value = outputLang;
-            document.getElementById('outputLanguage').value = inputLang;
+        document.getElementById("menuButton").addEventListener("click", function() {
+            let menu = document.getElementById("menu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
         });
     </script>
-</body>
-</html>
+    
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=gzBEi77v"></script>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var typingTimer;
-        var doneTypingInterval = 100; // زمن التأخير بعد التوقف عن الكتابة
+        var doneTypingInterval = 10; // زمن التأخير بعد التوقف عن الكتابة
         var $inuk = document.getElementById("inuk");
         var $braille = document.getElementById("braille");
         var inputLanguage = document.getElementById("inputLanguage");
@@ -311,7 +275,7 @@
         const SPECIAL_RESPONSES = {};
 
         function loadTranslations(language) {
-            var filePath = language === "ar" ? 'translations.json' : '';
+            var filePath = language === "ar" ? 'https://raw.githubusercontent.com/shamo74/Google-Translate/refs/heads/main/translations.json' : '';
             fetch(filePath)
                 .then(response => response.json())
                 .then(data => {
@@ -353,8 +317,8 @@
                         for (var j = 0; j < phraseWords.length; j++) {
                             if (words[i + j] !== phraseWords[j]) {
                                 match = false;
-                                break;
-                            }
+                                 break;
+                            } 
                         }
 
                         if (match) {
@@ -367,7 +331,7 @@
                 }
 
                 if (!phraseFound) {
-                    var word = words[i].replace(/[^\u0621-\u064A\u0660-\u80669]/g, " ");
+                    var word = words[i].replace(/[^\u0b621-\u064A\u0660-\u80669]/g, " ");
                     if (!wordsWritten.includes(word) && word.length > 0) {
                         wordsWritten.push(word);
                     }
@@ -527,6 +491,19 @@
             }
         });
     });
+    document.getElementById("menuButton").addEventListener("click", function() {
+            document.getElementById("menu").style.left = "0";
+        });
+
+        document.getElementById("closeMenu").addEventListener("click", function() {
+            document.getElementById("menu").style.left = "-200px";
+        });
+
+        document.querySelectorAll(".language").forEach(select => {
+            select.addEventListener("change", function() {
+                window.location.href = this.value;
+            });
+        });
 </script>
 
 
@@ -535,3 +512,6 @@
 
 
 
+
+</body>
+</html>
