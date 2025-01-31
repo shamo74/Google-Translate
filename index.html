@@ -7,199 +7,248 @@
     <title>ترجمة Google الإيزيدية</title>
     <style>
     	        /* Font Face for TTF */
+/* إعادة ضبط القيم الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tajawal;
+}
 
-        /* إعادة ضبط القيم الافتراضية */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Tajawal;
-        }
+/* إعداد الخلفية */
+body {
+    background-color: #E8EBED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    direction: rtl;
+    transition: background-color 0.3s ease;
+}
 
-        /* إعداد الخلفية */
-        body {
-            background-color: #E8EBED;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            direction: rtl;
-        }
+/* وضع داكن */
+body.dark-mode {
+    background-color: #2F2F2F;
+}
 
-        /* الحاوية الرئيسية */
-        .container {
-            width: 390px;
-            height: 780px;
-            background: #FFFFFF;
-            border-radius: 25px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px;
-            position: relative;
-        }
- 
-        /* الهيدر */
-        header {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 20px;
-            font-size: 25px;
-            font-weight: bold;
-            color: #000;
-            
-            position: relative;
-        }
+/* الحاوية الرئيسية */
+.container {
+    width: 390px;
+    height: 780px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
 
-        .star-icon {
-            font-size: 22px;
-            cursor: pointer;
-        }
+/* وضع داكن للحاوية */
+.container.dark-mode {
+    background: #333333;
+}
 
-        /* زر القائمة */
-        .menu-icon {
-            font-size: 26px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-weight: bold;
-        }
+/* الهيدر */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+}
 
-        /* القائمة المنسدلة */
-        .menu {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 200px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-            width: 150px;
-            z-index: 10;
-        }
+header.dark-mode {
+    color: #fff;
+}
 
-        .menu a {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-            border-bottom: 1px solid #eee;
-            text-align: center;
-            
-        }
+/* زر الشمس والقمر */
+.sun-moon-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
 
-        .menu a:last-child {
-            border-bottom: none;
-        }
+/* باقي التنسيقات */
+.input-box {
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: 15px;
+    background: #F8F9FA;
+    font-size: 22px;
+    padding: 15px;
+    text-align: right;
+    resize: none;
+    outline: none;
+    font-weight: bold;
+    position: relative;
+}
 
-        .menu a:hover {
-            background: #f0f0f0;
-        }
+/* زر الشمس */
+.sun-icon {
+    color: #FDB813;
+}
 
-        /* إدخال النص */
-        .input-section {
-            width: 100%;
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            
-        }
+/* زر القمر */
+.moon-icon {
+    color: #4A90E2;
+}
 
-        .input-box {
-            width: 100%;
-            height: 100px;
-            border: none;
-            border-radius: 15px;
-            background: #F8F9FA;
-            font-size: 22px;
-            padding: 15px;
-            text-align: right;
-            resize: none;
-            outline: none;
-            font-weight: bold;
-        }
+/* إعدادات الوضع الداكن */
+body.dark-mode {
+    background-color: #2F2F2F;
+    color: #fff;
+}
 
-        .read-button, .paste-btn {
-            margin-top: 10px;
-            background: #E0E0E0;
-            border-radius: 12px;
-            padding: 10px 15px;
-            font-size: 18px;
-            cursor: pointer;
-            border: none;
-        }
+.container.dark-mode {
+    background: #333333;
+}
 
-        /* أزرار اللغات */
-        .language-selection {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-            position: relative;
-            font-weight: bold;
-        }
+header.dark-mode {
+    color: #fff;
+}
 
-        .language {
-            width: 45%;
-            background: #E0E0E0;
-            border-radius: 12px;
-            padding: 10px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #000;
-            cursor: pointer;
-            border: none;
-           
-        }
+/* إعدادات القائمة المنسدلة */
+.menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 200px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    z-index: 10;
+}
 
-        .swap-icon {
-            font-size: 24px;
-            background: #E0E0E0;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: none;
-        }
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
 
-        /* أيقونات أسفل الشاشة */
-        .bottom-icons {
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            margin-top: 30px;
-            font-weight: bold;
-        }
+.menu a:last-child {
+    border-bottom: none;
+}
 
-        .icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.menu a:hover {
+    background: #f0f0f0;
+}
 
-        .icon-btn, .mic-btn {
-            width: 100px;
-            height: 100px;
-            background-size: cover;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-        }
+/* إدخال النص */
+.input-section {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .icon-label {
-            margin-top: 5px;
-            font-size: 16px;
-        }
+.input-box {
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: 15px;
+    background: #F8F9FA;
+    font-size: 22px;
+    padding: 15px;
+    text-align: right;
+    resize: none;
+    outline: none;
+    font-weight: bold;
+    position: relative;
+}
+
+/* أزرار اللغات */
+.language-selection {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
+    font-weight: bold;
+}
+
+.language {
+    width: 45%;
+    background: #E0E0E0;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    border: none;
+}
+
+.swap-icon {
+    font-size: 24px;
+    background: #E0E0E0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+/* أيقونات أسفل الشاشة */
+.bottom-icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-btn, .mic-btn {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.icon-label {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* إعدادات النمط للأزرار */
+.read-button, .paste-btn {
+    margin-top: 10px;
+    background: #E0E0E0;
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+}
+
+/* تنسيق النص */
 html, body {
     height: 100%;
     overflow: hidden; /* يمنع تحرك الصفحة عند ظهور لوحة المفاتيح */
@@ -220,49 +269,29 @@ html, body {
     align-items: center;
     padding: 15px;
 }
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* يمنع تحرك الشاشة */
-}
 
-.container {
-    width: 390px;
-    height: 780px;
-    background: #FFFFFF;
-    border-radius: 25px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.input-box {
-    width: 100%;
-    height: 100px;
-    border: none;
-    border-radius: 15px;
-    background: #F8F9FA;
-    font-size: 22px;
-    padding: 15px;
-    text-align: right;
-    resize: none;
-    outline: none;
-    font-weight: bold;
-    position: relative; /* يضمن بقاء الحقل في مكانه */
-} 
+/* إضافة النمط الخاص للأزرار */
 .input-container {
     position: fixed;
     bottom: 20px; /* أو أي مسافة مناسبة */
     left: 50%;
     transform: translateX(-50%);
     width: 90%; /* تأكد من أن العرض مناسب */
+}
+/* زر القائمة (menu) */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #000;
+    transition: color 0.3s ease; /* إضافة تأثير التبديل اللوني */
+}
+
+/* عند تفعيل الوضع الداكن */
+body.dark-mode .menu-icon {
+    color: #fff; /* تغيير اللون في وضع الداكن */
 }
     </style>
 </head>
@@ -287,7 +316,8 @@ html, body {
         <!-- إدخال النص -->
         <div class="input-section">
             <textarea id="inuk" class="input-box" placeholder="العربية"></textarea>
-            <button id="read-btn" class="read-button">🔊</button>
+            <button id="read-btn" class="read-button">قراءة النص</button>
+            
         </div>
 
         <div class="input-section">
@@ -297,16 +327,27 @@ html, body {
 
         <!-- أزرار اللغات -->
         <div class="language-selection">
-            <select id="inputLanguage" class="language">
-                <option value="ar">العربية</option>
-                
+            <select id="inputLanguage" class="language"onchange="window.location.href=this.value;">
+                   <option value="ar">العربية</option>
+                   <option value="https://example.com/tr">𐺩𐺏𐺨𐺋𐺨</option>
+                   <option value="https://example.com/ku">كوردى</option>
             </select>
+         
+         
+         
+         
          إلى
-            <select id="outputLanguage" class="language">
+         
+         
+           <select class="language" onchange="window.location.href=this.value;">
                 <option value="en">𐺩𐺏𐺨𐺋𐺨</option>
+                   <option value="https://example.com/tr">العربية</option>
+                     <option value="https://example.com/tr">كوردى</option>
                 
             </select>
         </div>
+        
+        
 
         <!-- أيقونات التحكم -->
         <div class="bottom-icons">
@@ -322,7 +363,7 @@ html, body {
                 <button class="icon-btn" style="background-image: url('1.png');"></button>
                 <div class="icon-label">الإعدادات</div>
             </div>
-               
+            
         </div>
     </div>
 
@@ -580,6 +621,7 @@ html, body {
             });
         });
         
+        
 </script>
 
 
@@ -602,7 +644,64 @@ document.querySelector("input").addEventListener("blur", function() {
 
 
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const inukText = document.getElementById('inuk');
+        const brailleText = document.getElementById('braille');
+        const readButton = document.getElementById('read-btn');
+        const copyButton = document.getElementById('copyButton');
+        const micButton = document.getElementById('startRecording');
+
+        // زر قراءة النص
+        readButton.addEventListener('click', function() {
+            const text = inukText.value;
+            if (text) {
+                responsiveVoice.speak(text, "Arabic Female", {
+                    pitch: 0.8,
+                    rate: 1,
+                    volume: 1
+                });
+            } else {
+                alert("يرجى إدخال نص للقراءة.");
+            }
+        });
+
+        // زر نسخ النص
+        copyButton.addEventListener('click', function() {
+            brailleText.select();
+            navigator.clipboard.writeText(brailleText.value).then(() => {
+                alert('تم نسخ النص بنجاح!');
+            }).catch(err => {
+                console.error('حدث خطأ أثناء النسخ:', err);
+            });
+        });
+
+        // زر الميكروفون للتعرف على الصوت
+        if ('webkitSpeechRecognition' in window) {
+            const recognition = new webkitSpeechRecognition();
+            recognition.lang = "ar";
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            micButton.addEventListener('click', function() {
+                recognition.start();
+            });
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                inukText.value += transcript;
+            };
+
+            recognition.onerror = function(event) {
+                console.error('حدث خطأ أثناء التعرف على الصوت:', event.error);
+            };
+        } else {
+            alert('هذا المتصفح لا يدعم ميزة التعرف على الصوت.');
+        }
+    });
+    
+</script>
 
  
 </body>
-</html>
+</html> 
