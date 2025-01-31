@@ -220,6 +220,50 @@ html, body {
     align-items: center;
     padding: 15px;
 }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* يمنع تحرك الشاشة */
+}
+
+.container {
+    width: 390px;
+    height: 780px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.input-box {
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: 15px;
+    background: #F8F9FA;
+    font-size: 22px;
+    padding: 15px;
+    text-align: right;
+    resize: none;
+    outline: none;
+    font-weight: bold;
+    position: relative; /* يضمن بقاء الحقل في مكانه */
+} 
+.input-container {
+    position: fixed;
+    bottom: 20px; /* أو أي مسافة مناسبة */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* تأكد من أن العرض مناسب */
+}
     </style>
 </head>
 <body>
@@ -545,6 +589,13 @@ document.getElementById("inuk").addEventListener("focus", function() {
 
 document.getElementById("inuk").addEventListener("blur", function() {
     document.body.style.overflow = "auto"; // يعيد التمرير بعد الانتهاء
+});
+document.querySelector("input").addEventListener("focus", function() {
+    document.body.style.overflow = "hidden";
+});
+
+document.querySelector("input").addEventListener("blur", function() {
+    document.body.style.overflow = "auto";
 });
 </script>
 
