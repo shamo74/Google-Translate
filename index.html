@@ -748,77 +748,6 @@ document.querySelector("input").addEventListener("blur", function() {
         fromText.addEventListener("input", translateText);
     </script>
     
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة مع فيديو بانر</title>
-    <style>
-        /* تصميم الصفحة */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* تصميم الإعلان (البانر) */
-        #ad-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 200px; /* ارتفاع البانر */
-            z-index: 1000; /* ظهور البانر فوق باقي المحتوى */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000;
-            position: relative; /* مهم لوضع زر الإغلاق في الزاوية */
-        }
-
-        /* الفيديو داخل البانر */
-        #ad-banner video {
-            width: 100%;
-            height: 100%; /* ملء البانر بالكامل */
-            object-fit: cover; /* لتغطية المساحة بالكامل دون تشويه */
-        }
-
-        /* إخفاء أزرار التحكم في الفيديو */
-        #ad-banner video::-webkit-media-controls {
-            display: none;
-        }
-
-        #ad-banner video::-moz-media-controls {
-            display: none;
-        }
-
-        #ad-banner video::media-controls {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- محتوى الصفحة الرئيسي -->
-    <div/>
- 
-
-    <!-- إعلان البانر في الأسفل باستخدام فيديو MP4 -->
-    <div id="ad-banner">
-        <video id="banner-video" autoplay loop>
-            <source src="mov_bbb.mp4" type="video/mp4">
-            متصفحك لا يدعم تشغيل الفيديو.
-        </video>
-    </div>
-
-    <script>
-        // إخفاء البانر بعد دقيقة (60 ثانية)
-        setTimeout(() => {
-            document.getElementById("ad-banner").classList.add("hidden");
-            document.getElementById("banner-video").pause(); // إيقاف الفيديو بعد 60 ثانية
-        }, 60000); // إخفاء بعد 60 ثانية
-    </script>
 
 
     <title>صفحة مع فيديو بانر</title>
@@ -875,7 +804,7 @@ document.querySelector("input").addEventListener("blur", function() {
 
     <!-- محتوى الصفحة الرئيسي -->
     <div/>
-        
+         
 
     <!-- إعلان البانر في الأسفل باستخدام فيديو MP4 -->
     <div id="ad-banner">
