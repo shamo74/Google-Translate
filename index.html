@@ -440,7 +440,7 @@ body.dark-mode .menu-icon {
             <option value="en-GB" selected>الإنجليزية</option>
             
             <option value="https://example.com/tr">الإيزيدية ( شنگالية )</option>
-            <option value="https://example.com/tr">
+            <option value="yezidi-translate.html">
 الإيزيدية ( 𐺩𐺏𐺨𐺋𐺨 )
 </option>
         
@@ -749,8 +749,8 @@ document.querySelector("input").addEventListener("blur", function() {
     </script>
     
 
+<!DOCTYPE html>
 
-    <title>صفحة مع فيديو بانر</title>
     <style>
         /* تصميم الصفحة */
         body {
@@ -774,63 +774,35 @@ document.querySelector("input").addEventListener("blur", function() {
             position: relative; /* مهم لوضع زر الإغلاق في الزاوية */
         }
 
-        /* الفيديو داخل البانر */
-        #ad-banner video {
+        /* الصورة GIF داخل البانر */
+        #ad-banner img {
             width: 100%;
             height: 100%; /* ملء البانر بالكامل */
             object-fit: cover; /* لتغطية المساحة بالكامل دون تشويه */
         }
 
-        /* زر الإغلاق × */
-        #close-btn {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 25px;
-            cursor: pointer;
-            z-index: 1001; /* فوق الفيديو */
-        }
-
-        /* إخفاء البانر بعد 5 ثواني (اختياري) */
+        /* إخفاء البانر بعد 60 ثانية */
         #ad-banner.hidden {
             display: none;
         }
     </style>
 </head>
 <body>
+<Br/>
+<Br/>
 
     <!-- محتوى الصفحة الرئيسي -->
-    <div/>
-         
+    <div>ملاحظة!
+        <h1>ترجمة تجريبي</h1>
+        <p>
+نحن نعمل على تحسين تطبيق الترجمة لنقدم لكم تجربة أكثر سلاسة ودقة، حيث نسعى دائمًا لتلبية احتياجاتكم وتوفير أفضل الحلول لترجمتكم بكل سهولة وفعالية.
 
-    <!-- إعلان البانر في الأسفل باستخدام فيديو MP4 -->
-    <div id="ad-banner">
-        <!-- زر الإغلاق × -->
-        <button id="close-btn">×</button>
-        <video autoplay loop id="banner-video">
-            <source src="mov_bbb.mp4" type="video/mp4">
-            متصفحك لا يدعم تشغيل الفيديو.
-        </video>
+
+
+.</p>
     </div>
 
-    <script>
-        // إخفاء البانر عند الضغط على زر الإغلاق
-        document.getElementById("close-btn").onclick = function() {
-            document.getElementById("ad-banner").classList.add("hidden");
-            // إيقاف الفيديو عند إغلاق البانر
-            document.getElementById("banner-video").pause();
-        };
-
-        // إذا أردت إخفاء البانر بعد فترة (اختياري)
-        setTimeout(() => {
-            document.getElementById("ad-banner").classList.add("hidden");
-            document.getElementById("banner-video").pause(); // إيقاف الفيديو
-        }, 9000); // إخفاء بعد 5 ثواني
-    </script>
-
+    
 
 </body>
 </html> 
