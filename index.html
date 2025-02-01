@@ -702,6 +702,42 @@ document.querySelector("input").addEventListener("blur", function() {
     
 </script>
 
+
+
+
+
+
+<div id="notification" class="notification">
+        <p>سوف نقوم بتحسين تطبيقنا بشكل أفضل قريبًا. هذا الإصدار تجريبي قيد التطوير. إذا تريد تساهم اضغط على الزر أدناه.</p>
+        <button onclick="contribute()">مساهمة</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let notification = document.getElementById("notification");
+            
+            // إظهار الإشعار عند تحميل الصفحة
+            notification.style.display = "block";
+            
+            // إخفاء الإشعار بعد 10 ثوانٍ
+            setTimeout(function() {
+                notification.style.display = "none";
+            }, 10000);
+        });
+
+        function contribute() {
+            alert("شكرًا لمساهمتك! سيتم توجيهك إلى صفحة المساهمة قريبًا.");
+            // يمكنك توجيه المستخدم لصفحة المساهمة هنا، مثال:
+            // window.location.href = "contribute.html";
+        }
+    </script>
+
+
+
+
+       
+
+       
  
 </body>
 </html> 
