@@ -1,1 +1,825 @@
 
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+       <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    	    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <title>ترجمة Google الإيزيدية</title>
+    <style>
+    	        /* Font Face for TTF */
+/* إعادة ضبط القيم الافتراضية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tajawal;
+}
+
+/* إعداد الخلفية */
+body {
+    background-color: #E8EBED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    direction: rtl;
+    transition: background-color 0.3s ease;
+}
+
+/* وضع داكن */
+body.dark-mode {
+    background-color: #2F2F2F;
+}
+
+/* الحاوية الرئيسية */
+.container {
+    width: 390px;
+    height: 780px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+/* وضع داكن للحاوية */
+.container.dark-mode {
+    background: #333333;
+}
+
+/* الهيدر */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000;
+    position: relative;
+}
+
+header.dark-mode {
+    color: #fff;
+}
+
+/* زر الشمس والقمر */
+.sun-moon-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* باقي التنسيقات */
+.input-box {
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: 15px;
+    background: #F8F9FA;
+    font-size: 22px;
+    padding: 15px;
+    text-align: right;
+    resize: none;
+    outline: none;
+    font-weight: bold;
+    position: relative;
+}
+
+/* زر الشمس */
+.sun-icon {
+    color: #FDB813;
+}
+
+/* زر القمر */
+.moon-icon {
+    color: #4A90E2;
+}
+
+/* إعدادات الوضع الداكن */
+body.dark-mode {
+    background-color: #2F2F2F;
+    color: #fff;
+}
+
+.container.dark-mode {
+    background: #333333;
+}
+
+header.dark-mode {
+    color: #fff;
+}
+
+/* إعدادات القائمة المنسدلة */
+.menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 200px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    z-index: 10;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.menu a:last-child {
+    border-bottom: none;
+}
+
+.menu a:hover {
+    background: #f0f0f0;
+}
+
+/* إدخال النص */
+.input-section {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-box {
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: 15px;
+    background: #F8F9FA;
+    font-size: 22px;
+    padding: 15px;
+    text-align: right;
+    resize: none;
+    outline: none;
+    font-weight: bold;
+    position: relative;
+}
+
+/* أزرار اللغات */
+.language-selection {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
+    font-weight: bold;
+}
+
+.language {
+    width: 45%;
+    background: #E0E0E0;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    border: none;
+}
+
+.swap-icon {
+    font-size: 24px;
+    background: #E0E0E0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
+
+/* أيقونات أسفل الشاشة */
+.bottom-icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-btn, .mic-btn {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.icon-label {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* إعدادات النمط للأزرار */
+.read-button, .paste-btn {
+    margin-top: 10px;
+    background: #E0E0E0;
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+}
+
+/* تنسيق النص */
+html, body {
+    height: 100%;
+    overflow: hidden; /* يمنع تحرك الصفحة عند ظهور لوحة المفاتيح */
+}
+
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 390px;
+    height: 780px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+/* إضافة النمط الخاص للأزرار */
+.input-container {
+    position: fixed;
+    bottom: 20px; /* أو أي مسافة مناسبة */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* تأكد من أن العرض مناسب */
+}
+/* زر القائمة (menu) */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #000;
+    transition: color 0.3s ease; /* إضافة تأثير التبديل اللوني */
+}
+
+/* عند تفعيل الوضع الداكن */
+body.dark-mode .menu-icon {
+    color: #fff; /* تغيير اللون في وضع الداكن */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- الهيدر -->
+        <header>
+            <div class="header-text">
+ترجمة Google  
+
+الإيزيدية
+</div>
+            <button class="menu-icon" id="menuButton">☰</button>
+            <div class="menu" id="menu">
+                <a href="http://www.ezidicode.com/privacy.html">سياسة والخصوصية</a>
+                <a href="chatlive.html">دردشة مباشرة</a>
+                <a href="contact.html">اتصال بنا</a>
+                <a href="about.html">حول</a>
+            </div>
+        </header>
+
+        <!-- إدخال النص -->
+        <div class="input-section">
+            <textarea id="inuk" class="input-box" placeholder="إدخال النص"></textarea>
+      
+            
+        </div>
+
+        <div class="input-section">
+            <textarea id="braille" class="input-box" readonly placeholder="ترجمة"></textarea>
+        
+
+  
+    <!-- أزرار اللغات -->
+    <div class="language-selection">
+        <select id="inputLanguage" class="language" onchange="handleLanguageSelection(this, 'from-lang')">
+   
+       
+  
+    <option value="ar-SA"selected>العربية</option>
+    
+    <option value="ckb">كوردى سورانى</option>
+         <option value="am-ET">الأمهرية</option>
+<option value="be-BY">البيلاروسية</option>
+    <option value="bem-ZM">البمبا</option>
+    <option value="bi-VU">البيسلاما</option>
+    <option value="bjs-BB">الباجان</option>
+    <option value="bn-IN">البنغالية</option>
+    <option value="bo-CN">التبتية</option>
+    <option value="br-FR">البريتونية</option>
+    <option value="bs-BA">البوسنية</option>
+    <option value="ca-ES">الكتالانية</option>
+    <option value="cop-EG">القبطية</option>
+    <option value="cs-CZ">التشيكية</option>
+    <option value="cy-GB">الويلزية</option>
+    <option value="da-DK">الدنماركية</option>
+    <option value="dz-BT">الدوزونغخا</option>
+    <option value="de-DE">الألمانية</option>
+    <option value="dv-MV">المالديفية</option>
+    <option value="el-GR">اليونانية</option>
+    
+    <option value="es-ES">الإسبانية</option>
+    <option value="et-EE">الإستونية</option>
+    <option value="eu-ES">الباسكية</option>
+    <option value="fa-IR">الفارسية</option>
+    <option value="fi-FI">الفنلندية</option>
+    <option value="fn-FNG">الفاناغالو</option>
+    <option value="fo-FO">الفاروية</option>
+    <option value="fr-FR">الفرنسية</option>
+    <option value="gl-ES">الغاليسية</option>
+    <option value="gu-IN">الغوجاراتية</option>
+    <option value="ha-NE">الهاوسا</option>
+    <option value="he-IL">العبرية</option>
+    <option value="hi-IN">الهندية</option>
+    <option value="hr-HR">الكرواتية</option>
+    <option value="hu-HU">المجرية</option>
+    <option value="id-ID">الإندونيسية</option>
+    <option value="is-IS">الأيسلندية</option>
+    <option value="it-IT">الإيطالية</option>
+    <option value="ja-JP">اليابانية</option>
+    <option value="kk-KZ">الكازاخية</option>
+    <option value="km-KM">الكميرونية</option>
+    <option value="kn-IN">الكنادية</option>
+    <option value="ko-KR">الكورية</option>
+    <option value="ku-TR">الكردية</option>
+    <option value="ky-KG">القيرغيزية</option>
+    <option value="la-VA">اللاتينية</option>
+    <option value="lo-LA">اللاو</option>
+    <option value="lv-LV">اللاتفية</option>
+    <option value="men-SL">الميندي</option>
+    <option value="mg-MG">الملغاشية</option>
+    <option value="mi-NZ">الماورية</option>
+    <option value="ms-MY">الملاوية</option>
+    <option value="mt-MT">المالطية</option>
+    <option value="my-MM">البرمية</option>
+    <option value="ne-NP">النيبالية</option>
+    <option value="niu-NU">النيويانية</option>
+    <option value="nl-NL">الهولندية</option>
+    <option value="no-NO">النرويجية</option>
+    <option value="ny-MW">النيانجا</option>
+    <option value="ur-PK">الأوردو</option>
+    <option value="pau-PW">البالوان</option>
+    <option value="pa-IN">البنجابية</option>
+    <option value="ps-PK">البشتوية</option>
+    <option value="pis-SB">البيجين</option>
+    <option value="pl-PL">البولندية</option>
+    <option value="pt-PT">البرتغالية</option>
+    <option value="rn-BI">الكيروندية</option>
+    <option value="ro-RO">الرومانية</option>
+    <option value="ru-RU">الروسية</option>
+    <option value="sg-CF">السانغو</option>
+    <option value="si-LK">السنهالية</option>
+    <option value="sk-SK">السلوفاكية</option>
+    <option value="sm-WS">الساموان</option>
+    <option value="sn-ZW">الشونا</option>
+    <option value="so-SO">الصومالية</option>
+    <option value="sq-AL">الألبانية</option>
+    <option value="sr-RS">الصربية</option>
+    <option value="sv-SE">السويدية</option>
+    <option value="sw-SZ">السواحيلية</option>
+    <option value="ta-LK">التاميلية</option>
+    <option value="te-IN">التيلوغو</option>
+    <option value="tet-TL">التتومية</option>
+    <option value="tg-TJ">الطاجيكية</option>
+    <option value="th-TH">التايلاندية</option>
+    <option value="ti-TI">التغرينية</option>
+    <option value="tk-TM">التركمانية</option>
+    <option value="tl-PH">التاغالوغ</option>
+    <option value="tn-BW">التسوانا</option>
+    <option value="to-TO">الطونغا</option>
+    <option value="tr-TR">التركية</option>
+    <option value="uk-UA">الأوكرانية</option>
+    <option value="uz-UZ">الأوزبكية</option>
+    <option value="vi-VN">الفيتنامية</option>
+    <option value="wo-SN">الولوف</option>
+    <option value="xh-ZA">الزوسا</option>
+    <option value="yi-YD">اليديش</option>
+    
+    <option value="zu-ZA">الزولو</option>
+        </select>
+        
+        إلى
+        
+        <select id="outputLanguage" class="language" onchange="handleLanguageSelection(this, 'to-lang')">
+            <option value="en-GB" selected>الإنجليزية</option>
+            
+            <option value="https://example.com/tr">الإيزيدية ( شنگالية )</option>
+            <option value="https://example.com/tr">
+الإيزيدية ( 𐺩𐺏𐺨𐺋𐺨 )
+</option>
+        
+    <option value="ar-SA">العربية</option>
+    <option value="ckb">كوردى سورانى</option>
+         <option value="am-ET">الأمهرية</option>
+<option value="be-BY">البيلاروسية</option>
+    <option value="bem-ZM">البمبا</option>
+    <option value="bi-VU">البيسلاما</option>
+    <option value="bjs-BB">الباجان</option>
+    <option value="bn-IN">البنغالية</option>
+    <option value="bo-CN">التبتية</option>
+    <option value="br-FR">البريتونية</option>
+    <option value="bs-BA">البوسنية</option>
+    <option value="ca-ES">الكتالانية</option>
+    <option value="cop-EG">القبطية</option>
+    <option value="cs-CZ">التشيكية</option>
+    <option value="cy-GB">الويلزية</option>
+    <option value="da-DK">الدنماركية</option>
+    <option value="dz-BT">الدوزونغخا</option>
+    <option value="de-DE">الألمانية</option>
+    <option value="dv-MV">المالديفية</option>
+    <option value="el-GR">اليونانية</option>
+    
+    <option value="es-ES">الإسبانية</option>
+    <option value="et-EE">الإستونية</option>
+    <option value="eu-ES">الباسكية</option>
+    <option value="fa-IR">الفارسية</option>
+    <option value="fi-FI">الفنلندية</option>
+    <option value="fn-FNG">الفاناغالو</option>
+    <option value="fo-FO">الفاروية</option>
+    <option value="fr-FR">الفرنسية</option>
+    <option value="gl-ES">الغاليسية</option>
+    <option value="gu-IN">الغوجاراتية</option>
+    <option value="ha-NE">الهاوسا</option>
+    <option value="he-IL">العبرية</option>
+    <option value="hi-IN">الهندية</option>
+    <option value="hr-HR">الكرواتية</option>
+    <option value="hu-HU">المجرية</option>
+    <option value="id-ID">الإندونيسية</option>
+    <option value="is-IS">الأيسلندية</option>
+    <option value="it-IT">الإيطالية</option>
+    <option value="ja-JP">اليابانية</option>
+    <option value="kk-KZ">الكازاخية</option>
+    <option value="km-KM">الكميرونية</option>
+    <option value="kn-IN">الكنادية</option>
+    <option value="ko-KR">الكورية</option>
+    <option value="ku-TR">الكردية</option>
+    <option value="ky-KG">القيرغيزية</option>
+    <option value="la-VA">اللاتينية</option>
+    <option value="lo-LA">اللاو</option>
+    <option value="lv-LV">اللاتفية</option>
+    <option value="men-SL">الميندي</option>
+    <option value="mg-MG">الملغاشية</option>
+    <option value="mi-NZ">الماورية</option>
+    <option value="ms-MY">الملاوية</option>
+    <option value="mt-MT">المالطية</option>
+    <option value="my-MM">البرمية</option>
+    <option value="ne-NP">النيبالية</option>
+    <option value="niu-NU">النيويانية</option>
+    <option value="nl-NL">الهولندية</option>
+    <option value="no-NO">النرويجية</option>
+    <option value="ny-MW">النيانجا</option>
+    <option value="ur-PK">الأوردو</option>
+    <option value="pau-PW">البالوان</option>
+    <option value="pa-IN">البنجابية</option>
+    <option value="ps-PK">البشتوية</option>
+    <option value="pis-SB">البيجين</option>
+    <option value="pl-PL">البولندية</option>
+    <option value="pt-PT">البرتغالية</option>
+    <option value="rn-BI">الكيروندية</option>
+    <option value="ro-RO">الرومانية</option>
+    <option value="ru-RU">الروسية</option>
+    <option value="sg-CF">السانغو</option>
+    <option value="si-LK">السنهالية</option>
+    <option value="sk-SK">السلوفاكية</option>
+    <option value="sm-WS">الساموان</option>
+    <option value="sn-ZW">الشونا</option>
+    <option value="so-SO">الصومالية</option>
+    <option value="sq-AL">الألبانية</option>
+    <option value="sr-RS">الصربية</option>
+    <option value="sv-SE">السويدية</option>
+    <option value="sw-SZ">السواحيلية</option>
+    <option value="ta-LK">التاميلية</option>
+    <option value="te-IN">التيلوغو</option>
+    <option value="tet-TL">التتومية</option>
+    <option value="tg-TJ">الطاجيكية</option>
+    <option value="th-TH">التايلاندية</option>
+    <option value="ti-TI">التغرينية</option>
+    <option value="tk-TM">التركمانية</option>
+    <option value="tl-PH">التاغالوغ</option>
+    <option value="tn-BW">التسوانا</option>
+    <option value="to-TO">الطونغا</option>
+    <option value="tr-TR">التركية</option>
+    <option value="uk-UA">الأوكرانية</option>
+    <option value="uz-UZ">الأوزبكية</option>
+    <option value="vi-VN">الفيتنامية</option>
+    <option value="wo-SN">الولوف</option>
+    <option value="xh-ZA">الزوسا</option>
+    <option value="yi-YD">اليديش</option>
+    <option value="zu-ZA">الزولو</option>
+        </select>
+    </div>
+        
+         <script>
+        function handleLanguageSelection(selectElement, targetId) {
+            let selectedValue = selectElement.value;
+            if (selectedValue.startsWith("http")) {
+                window.location.href = selectedValue;
+            }
+        }
+
+        const fromText = document.getElementById("inuk");
+        const toText = document.getElementById("braille");
+
+        // الترجمة التلقائية عند الكتابة
+        function translateText() {
+            let text = fromText.value.trim();
+            let fromLang = document.getElementById("inputLanguage").value;
+            let toLang = document.getElementById("outputLanguage").value;
+
+            if (fromLang.startsWith("http") || toLang.startsWith("http")) {
+                toText.placeholder = "لا يمكن الترجمة، اختر لغة صحيحة.";
+                return;
+            }
+
+            if (!text) {
+                toText.value = " ";
+                toText.placeholder = "الترجمة ستظهر هنا...";
+                return;
+            }
+
+            toText.placeholder = "جارٍ الترجمة...";
+
+            let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${fromLang}|${toLang}`;
+            fetch(apiUrl)
+                .then(res => res.json())
+                .then(data => {
+                    toText.value = data.responseData.translatedText;
+                    toText.placeholder = "الترجمة هنا...";
+                })
+                .catch(() => {
+                    toText.placeholder = "حدث خطأ في الترجمة";
+                });
+        }
+
+        // تنفيذ الترجمة تلقائيًا عند الإدخال
+        fromText.addEventListener("input", translateText);
+    </script>
+
+        <!-- أيقونات التحكم -->
+        <div class="bottom-icons">
+            <div class="icon">
+                <button class="icon-btn" style="background-image: url('2.png');"></button>
+                <div class="icon-label">الترجمة</div>
+            </div>
+            <div class="icon">
+                <button class="mic-btn" id="startRecording" style="background-image: url('3.png');"></button>
+                <div class="icon-label">الميكروفون</div>
+            </div>
+            <div class="icon">
+                <button class="icon-btn" style="background-image: url('1.png');"></button>
+                <div class="icon-label">الإعدادات</div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("menuButton").addEventListener("click", function() {
+            let menu = document.getElementById("menu");
+            menu.style.display = (menu.style.display === "block") ? "none" : "block";
+        });
+    </script>
+    
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=gzBEi77v"></script>
+
+
+
+
+
+<script/>
+document.getElementById("inuk").addEventListener("focus", function() {
+    document.body.style.overflow = "hidden"; // يمنع التمرير عند التركيز على حقل الإدخال
+});
+
+document.getElementById("inuk").addEventListener("blur", function() {
+    document.body.style.overflow = "auto"; // يعيد التمرير بعد الانتهاء
+});
+document.querySelector("input").addEventListener("focus", function() {
+    document.body.style.overflow = "hidden";
+});
+
+document.querySelector("input").addEventListener("blur", function() {
+    document.body.style.overflow = "auto";
+});
+</script>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const inukText = document.getElementById('inuk');
+        const brailleText = document.getElementById('braille');
+        const readButton = document.getElementById('read-btn');
+        const copyButton = document.getElementById('copyButton');
+        const micButton = document.getElementById('startRecording');
+
+        // زر قراءة النص
+        readButton.addEventListener('click', function() {
+            const text = inukText.value;
+            if (text) {
+                responsiveVoice.speak(text, "Arabic Female", {
+                    pitch: 0.8,
+                    rate: 1,
+                    volume: 1
+                });
+            } else {
+                alert("يرجى إدخال نص للقراءة.");
+            }
+        });
+
+        // زر نسخ النص
+        copyButton.addEventListener('click', function() {
+            brailleText.select();
+            navigator.clipboard.writeText(brailleText.value).then(() => {
+                alert('تم نسخ النص بنجاح!');
+            }).catch(err => {
+                console.error('حدث خطأ أثناء النسخ:', err);
+            });
+        });
+
+        // زر الميكروفون للتعرف على الصوت
+        if ('webkitSpeechRecognition' in window) {
+            const recognition = new webkitSpeechRecognition();
+            recognition.lang = "ar";
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            micButton.addEventListener('click', function() {
+                recognition.start();
+            });
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                inukText.value += transcript;
+            };
+
+            recognition.onerror = function(event) {
+                console.error('حدث خطأ أثناء التعرف على الصوت:', event.error);
+            };
+        } else {
+            alert('هذا المتصفح لا يدعم ميزة التعرف على الصوت.');
+        }
+    });
+    
+</script>
+
+
+       <script>
+        function handleLanguageSelection(selectElement, targetId) {
+            let selectedValue = selectElement.value;
+            if (selectedValue.startsWith("http")) {
+                window.location.href = selectedValue;
+            } else {
+                document.getElementById(targetId).value = selectedValue;
+            }
+        }
+
+        const fromText = document.getElementById("from-text");
+        const toText = document.getElementById("to-text");
+
+        // دالة تنفيذ الترجمة تلقائيًا عند الكتابة
+        function translateText() {
+            let text = fromText.value.trim();
+            let fromLang = document.getElementById("inputLanguage").value;
+            let toLang = document.getElementById("outputLanguage").value;
+
+            if (fromLang.startsWith("http") || toLang.startsWith("http")) {
+                toText.placeholder = "لا يمكن الترجمة، اختر لغة صحيحة.";
+                return;
+            }
+
+            if (!text) {
+                toText.value = "";
+                toText.placeholder = "الترجمة ستظهر هنا...";
+                return;
+            }
+
+            toText.placeholder = "جارٍ الترجمة...";
+
+            let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${fromLang}|${toLang}`;
+            fetch(apiUrl)
+                .then(res => res.json())
+                .then(data => {
+                    toText.value = data.responseData.translatedText;
+                    toText.placeholder = "الترجمة هنا...";
+                })
+                .catch(() => {
+                    toText.placeholder = "حدث خطأ في الترجمة";
+                });
+        }
+
+        // استدعاء دالة الترجمة عند الكتابة في حقل الإدخال
+        fromText.addEventListener("input", translateText);
+    </script>
+    
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة مع فيديو بانر</title>
+    <style>
+        /* تصميم الصفحة */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* تصميم الإعلان (البانر) */
+        #ad-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px; /* ارتفاع البانر */
+            z-index: 1000; /* ظهور البانر فوق باقي المحتوى */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            position: relative; /* مهم لوضع زر الإغلاق في الزاوية */
+        }
+
+        /* الفيديو داخل البانر */
+        #ad-banner video {
+            width: 100%;
+            height: 100%; /* ملء البانر بالكامل */
+            object-fit: cover; /* لتغطية المساحة بالكامل دون تشويه */
+        }
+
+        /* إخفاء أزرار التحكم في الفيديو */
+        #ad-banner video::-webkit-media-controls {
+            display: none;
+        }
+
+        #ad-banner video::-moz-media-controls {
+            display: none;
+        }
+
+        #ad-banner video::media-controls {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- محتوى الصفحة الرئيسي -->
+    <div/>
+ 
+
+    <!-- إعلان البانر في الأسفل باستخدام فيديو MP4 -->
+    <div id="ad-banner">
+        <video id="banner-video" autoplay loop>
+            <source src="mov_bbb.mp4" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+    </div>
+
+    <script>
+        // إخفاء البانر بعد دقيقة (60 ثانية)
+        setTimeout(() => {
+            document.getElementById("ad-banner").classList.add("hidden");
+            document.getElementById("banner-video").pause(); // إيقاف الفيديو بعد 60 ثانية
+        }, 60000); // إخفاء بعد 60 ثانية
+    </script>
+
+    
+</body>
+</html> 
